@@ -1,0 +1,12 @@
+[Unit]
+Description=Brickly
+After=network.target
+
+[Service]
+User=root
+WorkingDirectory=/root/bots/Brickly
+ExecStart=/bin/bash -c 'source /root/bots/my-project-env/bin/activate && python3 /root/bots/Brickly/Brickly.py'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

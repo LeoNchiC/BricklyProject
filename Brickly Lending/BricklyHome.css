@@ -1,0 +1,371 @@
+@font-face {
+    font-family: 'GillSans';  
+    src: 
+      url('FONTS/gillsansc.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    
+}
+
+@font-face {
+    font-family: 'SF';  
+    src: 
+      url('FONTS/SF-Pro-Text-Medium.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    
+}
+
+body {
+    background-color: #FFFF;
+    font-family: 'SF', sans-serif;
+    margin: 0;
+    user-select: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+.home {
+  width: 100%;
+  min-height: 100vh;
+  background-image: url('IMAGES/Rectangle.svg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    padding: 60px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: auto;
+    max-width: 300px;
+    height: auto;
+}
+.aboutUs {
+    width: auto;
+    color: #FFFFFF;
+    font-size: 24px;
+}
+
+button.aboutUs{
+    height: 60px;
+    width: 150px;
+    background: transparent;
+    border: 3px solid #FFFFFF;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.aboutUs:hover{
+    color:#0455FC;
+}
+
+button.aboutUs:hover{
+    background-color: #FFFFFF;
+    border: 3px solid #FFFFFF;
+}
+
+.text {
+    width: 90%;
+    max-width: 1000px;
+    margin-top: 90px;
+    margin-left: 5%;
+    padding: 0;
+    line-height: 1.5;
+    flex-grow: 1;
+    box-sizing: border-box;
+}
+
+.main_text {
+    font-size: 4em;
+    font-weight:lighter;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    text-align: left;
+}
+
+.main_text p {
+    margin: 0;
+}
+
+.description {
+    font-family: 'GillSans', sans-serif;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #FFFFFF;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.description p {
+    margin: 0;
+}
+
+.works {
+    font-size: 2em;
+    font-weight:lighter;
+    color: #FFFFFF;
+    padding-top: 60px;
+    text-align: left;
+}
+
+.footer {
+    color: #0455FC;
+    width: 100%;
+    padding: 50px 5%;
+    text-align: right;
+    box-sizing: border-box;
+    margin-top: auto;
+}
+
+.project {
+    width: auto;
+    font-size: 1.5em;
+    font-weight: normal;
+    color: #0455FC;
+    padding: 0;
+}
+
+.stats {
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  justify-content: center; /* Изменено: центрирование по вертикали */
+  align-items: center;   /* Добавлено: центрирование по горизонтали */
+}
+
+.elements {
+    margin-top: 22%; /* Возможно, этот стиль потребуется скорректировать или удалить, если .container центрируется */
+    margin-left: 5%; /* Возможно, этот стиль потребуется скорректировать или удалить, если .container центрируется */
+}
+
+.container {
+    display: flex;
+    gap: 80px;
+    max-width: 1200px;
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.statistic {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.statistic:last-child {
+    margin-bottom: 0;
+}
+
+.number {
+    font-size: 6em;
+    font-weight: bold;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.number.red {
+    color: #ff0055;
+}
+
+.number.black {
+    color: #333;
+}
+
+.descript {
+    font-size: 1.5em;
+    color: #333;
+    margin-top: 5px;
+    white-space: nowrap;
+}
+
+/* Добавлено: Стиль для descript_main */
+.descript_main {
+    font-size: 1.5em; /* Должен соответствовать .descript */
+    color: #333;
+    margin-top: 5px;
+    white-space: nowrap;
+    text-align: center; /* Убедимся, что он центрируется */
+}
+
+.right-sections {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 80px;
+}
+
+/* Адаптивные настройки */
+@media (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+    }
+
+    .right-sections {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .number {
+        font-size: 5em;
+    }
+
+    .descript {
+        font-size: 1.3em;
+    }
+    .descript_main { /* Адаптивная настройка для descript_main */
+        font-size: 1.3em;
+    }
+}
+
+@media (max-width: 576px) {
+    .number {
+        font-size: 4em;
+    }
+
+    .descript {
+        font-size: 1.1em;
+    }
+    .descript_main { /* Адаптивная настройка для descript_main */
+        font-size: 1.1em;
+    }
+
+    .container {
+        gap: 40px;
+    }
+
+    .right-sections {
+        gap: 30px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 40px 3%;
+    }
+
+    .logo {
+        max-width: 250px;
+    }
+
+    button.telegram_button {
+        height: 80px;
+        width: 80px;
+        
+    }
+
+    .text {
+        margin-top: 60px;
+        margin-left: 3%;
+        width: 94%;
+    }
+
+    .main_text {
+        font-size: 3em;
+        margin-bottom: 15px;
+        text-align: left;
+    }
+
+    .description {
+        font-size: 1.3em;
+        margin-top: 15px;
+        text-align: left;
+    }
+
+    .works {
+        font-size: 1.8em;
+        padding-top: 40px;
+        text-align: left;
+    }
+
+    .footer {
+        padding: 30px 3%;
+        text-align: center;
+    }
+
+    .project {
+        font-size: 1.3em;
+    }
+}
+
+/* For screens up to 480px (e.g., mobile phones) */
+@media screen and (max-width: 480px) {
+    .header {
+        flex-direction:row;
+        padding: 30px 2%;
+        align-items: flex-start;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+        max-width: 200px;
+    }
+
+    button.telegram_button {
+        height: 80px;
+        width: 80px;
+        align-self: flex-start;
+    }
+
+    .text {
+        margin-top: 40px;
+        margin-left: 2%;
+        width: 96%;
+    }
+
+    .main_text {
+        font-size: 2em;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .description {
+        font-size: 1.1em;
+        text-align: left;
+        margin-top: 10px;
+    }
+
+    .works {
+        font-size: 1.5em;
+        text-align: left;
+        padding-top: 30px;
+    }
+
+    .footer {
+        padding: 20px 2%;
+        text-align: center;
+    }
+
+    .project {
+        font-size: 1.1em;
+    }
+}

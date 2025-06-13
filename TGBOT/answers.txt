@@ -1,0 +1,29 @@
+##О нас
+Brickly - интуитивно понятный редактор сайтов, позволяющий создавать и редактировать
+различные виды сайтов без знания программирования. Идеально подходит для учреждений
+образования и начинающих предпринимателей!
+
+##Структура Brickly Project
+Структура представлена на рисунке.
+
+##Разработчик
+Flipuk - CTO, Neutral Network, Development.
+Леончик Никита Иванович 
+TG - @Flipuk
+
+##Дизайнер
+Chestnut Frenemy - CEO, Business strategy, Marketing.
+Кравцов Никита Андреевич
+TG - @ChestnutFrenemy
+
+##ТГ
+Telegram канал: https://t.me/bricklyproject
+
+##ИНСТ
+Instagram: https://www.instagram.com/brickly.project?igsh=ajk1Z3Ixemp2dzg1
+
+##ГТ
+GitHub: https://github.com/LeoNchiC/BusinessHubProject
+
+##Мыло
+Gmail: brickly.project@gmail.com
