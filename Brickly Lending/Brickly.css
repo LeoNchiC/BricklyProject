@@ -1,3 +1,27 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.burger-checkbox {
+  position: absolute;
+  visibility: hidden;
+}
+
+.black-back{
+    visibility:hidden; 
+    position:fixed;
+    left:0;
+    top:0;
+    height:100%;
+    width:100%;
+    background:#000;
+    opacity:0.5;
+    z-index: 998;  
+}
+
+
 @font-face {
     font-family: 'GillSans';
     src:
@@ -769,6 +793,9 @@ h2.footer-text {
     background-color: #0455FC;
     margin: 0 auto;
     padding: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
 }
 
 .logo-pages {
@@ -1065,6 +1092,95 @@ li.sellect a {
         margin-top: 80px;
     }
 
+
+
+
+.burger {
+  z-index: 1000;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 26px;
+  margin: 15px 10px;
+}
+.burger::before,
+.burger::after {
+  content: '';
+  left: 0;
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 4px;
+  border-radius: 10px;
+  background: #ffffff;
+}
+.burger::before {
+  top: 0;
+  box-shadow: 0 11px 0 #ffffff;
+  transition: box-shadow .3s .15s, top .3s .15s, transform .3s;
+}
+.burger::after {
+  bottom: 0;
+  transition: bottom .3s .15s, transform .3s;
+}
+.burger-checkbox:checked + .burger::before {
+  top: 11px;
+  transform: rotate(45deg);
+  box-shadow: 0 6px 0 rgba(0,0,0,0);
+  transition: box-shadow .15s, top .3s, transform .3s .15s;
+}
+.burger-checkbox:checked + .burger::after {
+  bottom: 11px;
+  transform: rotate(-45deg);
+  transition: bottom .3s, transform .3s .15s;
+}
+.nav{
+  background: #0455fc;
+  z-index: 999;
+  top: 0;
+  right : 0;
+  position: absolute;
+  transform: translateX(+100%);
+  transition: .3s;
+  padding: 30px 20px;
+  height: 100%;
+}
+.menu_pages {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  list-style-type: none;
+  width: 200px;
+}
+
+.burger-checkbox:checked ~ .nav {
+  transform: translateX(0);
+}
+
+
+    body {
+        overflow-x: hidden;
+        width: 100vw;
+        position: relative;
+    }
+    
+    .header_pages,
+    .projects-page {
+        /* overflow-x: hidden; */
+        width: 100vw;
+    }
+    
+    /* Фикс багац на iOS */
+    @supports (-webkit-touch-callout: none) {
+        body {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+    }
 }
 
 /* Для экранов шириной до 768px (планшеты в портретном режиме, большие телефоны) */
@@ -1318,7 +1434,7 @@ li.sellect a {
         font-size: 1em;
     }
 
-        .head-About {
+    .head-About {
     display: flex;
     flex-direction: column;
     justify-content: left;
@@ -1326,7 +1442,7 @@ li.sellect a {
     }
 
     .aboutUs-page {
-        height: 70vh;
+        /* height: 70vh; */
         width: 100%;
     }
 
@@ -1334,6 +1450,7 @@ li.sellect a {
         height: 6vh;
         width: 12vh;
         font-size: 1.5em;
+        margin-left: 30px;
     }
 
     .box-description {
@@ -1345,6 +1462,7 @@ li.sellect a {
         height: 100%;
         width: 70%;
         font-size: 1.5em;
+        margin-left: 30px;
     }
 
     .image-map{
@@ -1354,7 +1472,112 @@ li.sellect a {
         margin-left: 20px;
     }
 
+    .articles-title{
+        font-size: 25px;
+    }
 
+    h3.blog{
+        font-size: 30px;
+        margin-left: 30px;
+    }
+
+    .blog-grid{
+        margin-left: 30px;
+        margin-right: 30px;
+        grid-template-columns: none;
+        gap: 40px;
+    }
+
+    .blog-item h3{
+        font-size: 1em;
+    }
+
+    .blog-item p{
+        font-size: 1.7em;
+    }
+
+    .articles-header{
+        padding: 30px 20px;
+    }
+
+    .logo-pages{
+        width: 150px;
+        margin: 10px 30px 0px 15px;
+    }
+
+    .main-footer{
+        min-height: 0;
+    }
+
+    h2.footer-text{
+        font-size: 20px;
+        margin: 10px 0;
+    }
+
+    .Brickly-logo-rainbow{
+        max-width: 100%;
+        width: 200%;
+    }
+
+    .footer-menu{
+        display: none;
+    }
+
+    .footer-left{
+        padding: 0;
+        margin-top: 0;
+        min-width: 0;
+    }
+
+    .brickly-2025 h3{
+        font-size: 0.6em;
+        margin-top: 0;
+    }
+
+    .brickly-logo img{
+        width: 100px;
+    }
+
+    .footer-right{
+        padding: 0;
+        min-width: 0;
+    }
+
+    .footer-social li:first-child{
+        font-size: 0.7em;
+        padding: 5px;
+        padding-top: 0;
+        padding-right: 0;
+        margin: 0;
+    }
+
+    .head-Blog{
+        height: 8vh;
+    }
+
+    .footer-social img{
+        width: 20px;
+        height: 20px;
+    }
+
+    .footer-social ul{
+        gap: 0;
+        margin-top: 10px;
+    }
+
+    h3.trust {
+        font-size: 30px;
+        margin-left: 30px;
+        width: max-content;
+    }
+
+    .scroll-item-2{
+        margin: 60px 30px;
+    }
+
+    .horizontal-scroll-wrapper-2{
+        height: 180px;
+    }
 }
 
 /* Для очень маленьких экранов, таких как iPhone SE или мини-устройства */
