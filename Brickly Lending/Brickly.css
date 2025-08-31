@@ -1,3 +1,95 @@
+/*.........................................................iOS Specific Fixes (начало)....................................................... */
+@supports (-webkit-touch-callout: none) {
+    /* Фикс для полноэкранных блоков на iOS */
+    .home,
+    .aboutUs-page {
+        min-height: -webkit-fill-available;
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+    
+    /* Фикс для скролла */
+    body {
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Фикс для sticky элементов */
+    .horizontal-scroll,
+    .horizontal-scroll-2 {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Фикс для vh единиц */
+    .stats,
+    .main-footer {
+        min-height: 100vh;
+        min-height: -webkit-fill-available;
+    }
+}
+
+/* Общие фиксы для мобильных устройств */
+@media (max-width: 768px) {
+    /* Предотвращаем увеличение при фокусе на iOS */
+    input, textarea, select {
+        font-size: 16px !important;
+    }
+    
+    /* Улучшаем скролл */
+    .horizontal-scroll-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x mandatory;
+    }
+    
+    .horizontal-scroll {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+    
+    .scroll-item {
+        scroll-snap-align: start;
+        flex: 0 0 auto;
+    }
+    
+    /* Фикс для кнопок */
+    button.aboutUs {
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+}
+
+/* Убедимся, что все изображения responsive */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Фикс для фиксированных элементов */
+.progress-bar {
+    position: fixed;
+    z-index: 10000;
+}
+
+/* Улучшаем плавность скролла */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Исправляем box-sizing для всех элементов */
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* Убираем стандартные отступы */
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    position: relative;
+}
+/*................................................................... конец ................................................................... */
+
 *{
     margin: 0;
     padding: 0;
@@ -714,12 +806,24 @@ h2.footer-text {
     align-items: flex-end;
 }
 
-.footer-menu, .footer-social {
+.footer-menu, .footer-social, .footer-adaptive {
     display: flex;
     justify-content: flex-end;
     width: 100%;
     max-width: 700px;
     
+}
+
+.footer-adaptive{
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 2.5%;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    list-style: none;
+    font-size: 20px;
 }
 
 .footer-menu ul {
@@ -1507,6 +1611,7 @@ li.sellect a {
 
     .main-footer{
         min-height: 0;
+        padding: 20px 0;
     }
 
     h2.footer-text{
@@ -1516,11 +1621,23 @@ li.sellect a {
 
     .Brickly-logo-rainbow{
         max-width: 100%;
-        width: 200%;
+        width: 400%;
+    }
+
+    .footer-menu ul{
+        font-size: 18px;
+        gap: 0 10px;
     }
 
     .footer-menu{
         display: none;
+    }
+
+    .footer-adaptive{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
     }
 
     .footer-left{
@@ -1530,12 +1647,12 @@ li.sellect a {
     }
 
     .brickly-2025 h3{
-        font-size: 0.6em;
-        margin-top: 0;
+        font-size: 12px;
+        margin-top: 5px;
     }
 
     .brickly-logo img{
-        width: 100px;
+        width: 120px;
     }
 
     .footer-right{
@@ -1544,9 +1661,10 @@ li.sellect a {
     }
 
     .footer-social li:first-child{
-        font-size: 0.7em;
-        padding: 5px;
-        padding-top: 0;
+        order: 2;
+        font-weight: bold;
+        font-size: 12px;
+        padding-top: 10px;
         padding-right: 0;
         margin: 0;
     }
@@ -1555,14 +1673,31 @@ li.sellect a {
         height: 8vh;
     }
 
-    .footer-social img{
-        width: 20px;
-        height: 20px;
+    .head-footer {
+        padding: 0 0 0 5%;
     }
 
+    .footer-social img{
+        width: 30px;
+        height: 30px;
+    }
+    
     .footer-social ul{
         gap: 0;
-        margin-top: 10px;
+        margin-top: 0;
+        display: flex;
+        justify-content: right;
+        
+    }
+
+    .instagram-button, .telegram-button{
+        padding: 0 20px;
+        padding-right: 0;
+        margin-top: 5px;
+    }
+
+    .footer-social li:not(:first-child) {
+        order: 1; /* Иконки будут первыми (сверху) */
     }
 
     h3.trust {
