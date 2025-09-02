@@ -1,95 +1,3 @@
-/*.........................................................iOS Specific Fixes (начало)....................................................... */
-@supports (-webkit-touch-callout: none) {
-    /* Фикс для полноэкранных блоков на iOS */
-    .home,
-    .aboutUs-page {
-        min-height: -webkit-fill-available;
-        height: 100vh;
-        height: -webkit-fill-available;
-    }
-    
-    /* Фикс для скролла */
-    body {
-        overflow-x: hidden;
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Фикс для sticky элементов */
-    .horizontal-scroll,
-    .horizontal-scroll-2 {
-        -webkit-overflow-scrolling: touch;
-    }
-    
-    /* Фикс для vh единиц */
-    .stats,
-    .main-footer {
-        min-height: 100vh;
-        min-height: -webkit-fill-available;
-    }
-}
-
-/* Общие фиксы для мобильных устройств */
-@media (max-width: 768px) {
-    /* Предотвращаем увеличение при фокусе на iOS */
-    input, textarea, select {
-        font-size: 16px !important;
-    }
-    
-    /* Улучшаем скролл */
-    .horizontal-scroll-wrapper {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        scroll-snap-type: x mandatory;
-    }
-    
-    .horizontal-scroll {
-        display: flex;
-        flex-wrap: nowrap;
-    }
-    
-    .scroll-item {
-        scroll-snap-align: start;
-        flex: 0 0 auto;
-    }
-    
-    /* Фикс для кнопок */
-    button.aboutUs {
-        -webkit-appearance: none;
-        -webkit-tap-highlight-color: transparent;
-    }
-}
-
-/* Убедимся, что все изображения responsive */
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-/* Фикс для фиксированных элементов */
-.progress-bar {
-    position: fixed;
-    z-index: 10000;
-}
-
-/* Улучшаем плавность скролла */
-html {
-    scroll-behavior: smooth;
-}
-
-/* Исправляем box-sizing для всех элементов */
-*, *::before, *::after {
-    box-sizing: border-box;
-}
-
-/* Убираем стандартные отступы */
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    position: relative;
-}
-/*................................................................... конец ................................................................... */
-
 *{
     margin: 0;
     padding: 0;
@@ -810,7 +718,6 @@ h2.footer-text {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    max-width: 700px;
     
 }
 
@@ -1058,6 +965,51 @@ li.sellect a {
 
 /* === Адаптивные настройки для планшетов и мобильных устройств (улучшенные) === */
 
+@media (max-width: 1260px){
+    .main-footer{
+        min-height: 0;
+        padding: 20px 0;
+    }
+
+    h2.footer-text{
+        font-size: 40px;
+        margin: 10px 0;
+    }
+
+    .Brickly-logo-rainbow{
+        max-width: 100%;
+        width: 90%;
+    }
+
+    .footer-menu ul{
+        font-size: 18px;
+    }
+
+    .footer-left{
+        padding: 0;
+        margin-top: 0;
+        min-width: 0;
+    }
+
+    .brickly-2025 h3{
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .brickly-logo img{
+        width: 150px;
+    }
+
+    .footer-right{
+        padding: 0;
+        min-width: 0;
+    }
+    
+    .footer-social ul{
+        font-size: 18.5px;
+    }
+}
+
 /* Для экранов шириной до 992px (планшеты в ландрафтном режиме) */
 @media (max-width: 992px) {
     .home {
@@ -1192,7 +1144,7 @@ li.sellect a {
 
     .image-map{
         height: 50vh;
-        width: 75%;
+        width: 60%;
         margin-top: 80px;
     }
 
@@ -1284,6 +1236,66 @@ li.sellect a {
             width: 100%;
             height: 100%;
         }
+    }
+    
+
+    .main-footer{
+        min-height: 0;
+        padding: 20px 0;
+    }
+
+    h2.footer-text{
+        font-size: 30px;
+        margin: 10px 0;
+    }
+
+    .Brickly-logo-rainbow{
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .footer-menu ul{
+        font-size: 16px;
+        gap: 80px 30px;
+    }
+
+    .footer-social ul{
+        font-size: 16px;
+        gap: 80px 24px;
+    }
+
+    .footer-left{
+        padding: 0;
+        margin-top: 0;
+        min-width: 0;
+    }
+
+    .brickly-2025 h3{
+        font-size: 16px;
+        margin-top: 5px;
+    }
+
+    .brickly-logo img{
+        width: 150px;
+    }
+
+    .footer-right{
+        padding: 0;
+        min-width: 0;
+    }
+
+    .footer-social li:first-child {
+    font-size: 16px;
+    }
+
+    .footer-social img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .blog-grid{
+        grid-template-columns: none;
+        margin-right: 65px;
     }
 }
 
@@ -1401,7 +1413,7 @@ li.sellect a {
     }
 
     .box-description {
-    height: 40%;
+    height: 60%;
     width: 100%;
     }
 
@@ -1412,11 +1424,100 @@ li.sellect a {
     }
 
     .image-map{
-        height: 100%;
-        width: 100%;
-        margin-top: 100px;
+        width: 80%;
+        margin-top: 200px;
+        margin-left: 20px;
     }
 
+    .main-footer{
+        min-height: 0;
+        padding: 20px 0;
+    }
+
+    h2.footer-text{
+        font-size: 25px;
+        margin: 10px 0;
+    }
+
+    .Brickly-logo-rainbow{
+        max-width: 100%;
+        width: 200%;
+    }
+
+    .footer-menu ul{
+        font-size: 18px;
+        gap: 0 10px;
+    }
+
+    .footer-menu{
+        display: none;
+    }
+
+    .footer-adaptive{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        font-size: 25px;
+    }
+
+    .footer-left{
+        padding: 0;
+        margin-top: 0;
+        min-width: 0;
+    }
+
+    .brickly-2025 h3{
+        font-size: 12px;
+        margin-top: 5px;
+    }
+
+    .brickly-logo img{
+        width: 120px;
+    }
+
+    .footer-right{
+        padding: 0;
+        min-width: 0;
+    }
+
+    .footer-social li:first-child{
+        order: 2;
+        font-weight: bold;
+        font-size: 12px;
+        padding-top: 10px;
+        padding-right: 0;
+        margin: 0;
+    }
+    .head-footer {
+        padding: 0 0 0 5%;
+    }
+
+    .footer-social img{
+        width: 30px;
+        height: 30px;
+    }
+    
+    .footer-social ul{
+        gap: 0;
+        margin-top: 0;
+        display: flex;
+        justify-content: right;
+        max-width: 200px;   
+    }
+    .instagram-button, .telegram-button{
+        padding: 0 20px;
+        padding-right: 0;
+        margin-top: 0;
+    }
+
+    .footer-social li:not(:first-child) {
+        order: 1; /* Иконки будут первыми (сверху) */
+    }
+
+    .aboutUs-page {
+        height: 120vh;
+    }
 }
 
 /* Для экранов шириной до 480px (iPhone 14 и другие смартфоны) */
@@ -1546,7 +1647,7 @@ li.sellect a {
     }
 
     .aboutUs-page {
-        /* height: 70vh; */
+        height: 100vh;
         width: 100%;
     }
 
@@ -1638,6 +1739,7 @@ li.sellect a {
         flex-direction: row;
         justify-content: space-between;
         width: 100%;
+        font-size: 20px;
     }
 
     .footer-left{
@@ -1747,9 +1849,9 @@ li.sellect a {
         font-size: 0.8em;
     }
 
-     .aboutUs-page {
-    height: 65vh;
-    width: 100%;
+    .aboutUs-page {
+        height: 80vh;
+        width: 100%;
     }
 
     h2.text-About {
