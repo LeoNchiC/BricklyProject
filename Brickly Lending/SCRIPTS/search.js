@@ -1,6 +1,6 @@
 function searchProjects() {
         const searchTerm = document.querySelector('.search-input').value.toLowerCase();
-        const projects = document.querySelectorAll('.project-item' );
+        const projects = document.querySelectorAll('.project-item');
         let foundResults = false;
 
         projects.forEach(project => {
