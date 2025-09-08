@@ -315,7 +315,7 @@ h3.description p {
 
     .horizontal-scroll-wrapper {
       position: relative;
-      height: 60vh;
+      height: 500px;
       overflow: hidden; /* overflow-x: hidden; уже на body, но тут может быть useful для внутренней прокрутки */
       background-color: rgb(255, 255, 255);
       width: 100%; /* Убедимся, что wrapper не вызывает overflow */
@@ -442,7 +442,7 @@ img.card-photo {
 /* about us */
 
 .aboutUs-page {
-    height: 110vh;
+    height: 1000px;
     width: 100%;
     background-color: #B8ED43;
     display: flex;
@@ -529,7 +529,7 @@ h3.trust {
 
 .horizontal-scroll-wrapper-2 {
       position: relative;
-      height: 40vh;
+      height: 370px;
       overflow: hidden; 
       /* background-color: rgb(187, 0, 0); */
       width: 100%; 
@@ -593,7 +593,7 @@ h3.blog {
 }
 
 .blog-item {
-    background-color: #fff;
+    /* background-color: #fff; */
     overflow: hidden;
     text-align: left;
     display: flex;
@@ -612,6 +612,7 @@ h3.blog {
     line-height: 1.5;
     flex-grow: 1;
     font-family: 'GillSans', sans-serif;
+    max-height: 30px;
 }
 
 
@@ -724,7 +725,10 @@ h2.footer-text {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    
+}
+
+.footer-social{
+    margin-top: 10px;
 }
 
 .footer-adaptive{
@@ -801,7 +805,8 @@ h2.footer-text {
 .footer-social li:first-child {
     font-size: 1em;
     color: #808080;
-    margin-right: 20px;
+    margin-right: 45px;
+    margin-top: 5px;
 }
 
 .header_pages {
@@ -933,15 +938,15 @@ li.sellect a {
     flex-direction: column;
     width: 100%;
     max-width: 1200px;
-    height: 1200px;
+    /* height: 1200px; */
     padding: 30px;
     margin: 0 auto;
     /* background-color: #666; */
 }
 
 .pages-image {
-    height: 350px;
-    width: 450px;
+    max-height: 350px;
+    max-width: 450px;
     display: flex; 
     justify-content: center;
     align-items: center;
@@ -959,16 +964,21 @@ li.sellect a {
     font-family: "GillSans";
     font-size: 2em;  
     /* background-color: #F5BA23;   */
-    height: 450px;
+    /* height: 450px; */
 }
 
 p.pages {
     padding-bottom: 50px;
 }
 
+.button-more-parent{
+    height: 220px;
+    display: block;
+}
+
 .button-more {
-    height: 200px;
-    width: 1100px;
+    height: 90%;
+    width: 95%;
     background-color: #0457fc96;
     border-radius: 30px;
     justify-content: left;
@@ -981,8 +991,8 @@ p.pages {
 
 .button-more:hover {
     background-color: #0455FC;
-    height: 220px;
-    width: 1150px;
+    height: 100%;
+    width: 100%;
     transform: translateY(-5px); /* Легкий подъем */
     box-shadow: 0 10px 20px rgba(132, 150, 255, 0.7);
     padding-top: 60px;
@@ -1106,6 +1116,7 @@ h3.button-more-text {
     .footer-social ul{
         font-size: 18.5px;
     }
+
 }
 
 /* Для экранов шириной до 992px (планшеты в ландрафтном режиме) */
@@ -1170,7 +1181,7 @@ h3.button-more-text {
     }
 
     .horizontal-scroll-wrapper, .spacer {
-        height: 60vh;
+        height: 550px;
     }
 
     .scroll-item {
@@ -1180,7 +1191,7 @@ h3.button-more-text {
     }
 
     .horizontal-scroll-wrapper-2, .spacer {
-        height: 20vh;
+        height: 270px;
     }
 
     .scroll-item-2 {
@@ -1208,7 +1219,7 @@ h3.button-more-text {
     }
 
     .aboutUs-page {
-        height: 100vh;
+        height: 1000px;
         width: 100%;
         background-color: #B8ED43;
         display: flex;
@@ -1327,14 +1338,14 @@ h3.button-more-text {
         width: 100vw;
     }
     
-    /* Фикс багац на iOS */
+    /* Фикс багац на iOS
     @supports (-webkit-touch-callout: none) {
         body {
             position: fixed;
             width: 100%;
             height: 100%;
         }
-    }
+    } */
     
 
     .main-footer{
@@ -1383,7 +1394,9 @@ h3.button-more-text {
     }
 
     .footer-social li:first-child {
-    font-size: 16px;
+        font-size: 16px;
+        margin-top: 0px;
+        margin-right: 20px;
     }
 
     .footer-social img{
@@ -1394,6 +1407,11 @@ h3.button-more-text {
     .blog-grid{
         grid-template-columns: none;
         margin-right: 65px;
+    }
+
+    .logo-pages{
+        width: 150px;
+        margin: 10px 30px 0px 15px;
     }
 }
 
@@ -1472,7 +1490,7 @@ h3.button-more-text {
     }
 
     .horizontal-scroll-wrapper, .spacer {
-        height: 40vh;
+        height: 290px;
     }
 
     .scroll-item {
@@ -1483,7 +1501,7 @@ h3.button-more-text {
 
     
     .horizontal-scroll-wrapper-2, .spacer {
-        height: 30vh;
+        height: 270px;
     }
 
     .scroll-item-2 {
@@ -1525,6 +1543,7 @@ h3.button-more-text {
         width: 80%;
         margin-top: 200px;
         margin-left: 20px;
+        margin-bottom: 40px;
     }
 
     .main-footer{
@@ -1572,6 +1591,7 @@ h3.button-more-text {
 
     .brickly-logo img{
         width: 120px;
+        margin-top: 10px;
     }
 
     .footer-right{
@@ -1614,7 +1634,23 @@ h3.button-more-text {
     }
 
     .aboutUs-page {
-        height: 120vh;
+        height: 1100px;
+    }
+
+    .pages-description {
+        font-size: 1.5em;
+    }
+
+    .button-more-parent {
+        height: 150px;
+    }
+    
+    .button-more{
+        padding: 30px 0px 0px 30px;
+    }
+    
+    .button-more:hover{
+        padding: 35px;
     }
 }
 
@@ -1693,7 +1729,7 @@ h3.button-more-text {
     }
 
     .horizontal-scroll-wrapper, .spacer {
-        height: 25vh;
+        height: 215px;
     }
 
     .scroll-item {
@@ -1745,7 +1781,7 @@ h3.button-more-text {
     }
 
     .aboutUs-page {
-        height: 100vh;
+        height: 850px;
         width: 100%;
     }
 
@@ -1913,6 +1949,24 @@ h3.button-more-text {
     .horizontal-scroll-wrapper-2{
         height: 180px;
     }
+
+    .button-more-parent {
+        height: 110px;
+    }
+    
+    .button-more{
+        padding: 20px 0px 0px 20px;
+        font-size: 0.8em;
+    }
+    
+    h3.button-more-text {
+        color: black;
+        padding-bottom: 10px;
+    }
+
+    .button-more:hover{
+        padding: 25px;
+    }
 }
 
 /* Для очень маленьких экранов, таких как iPhone SE или мини-устройства */
@@ -1930,7 +1984,8 @@ h3.button-more-text {
         font-size: 0.9em;
     }
     .horizontal-scroll-wrapper, .spacer {
-        height: 20vh;
+        /* height: 20vh; */
+        height: 170px;
     }
     .scroll-item {
         width: 150px;
@@ -1948,7 +2003,8 @@ h3.button-more-text {
     }
 
     .aboutUs-page {
-        height: 80vh;
+        /* height: 80vh; */
+        height: 750px;
         width: 100%;
     }
 
