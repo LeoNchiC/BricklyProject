@@ -65,6 +65,11 @@ html, body {
     font-family: 'SF';
 }
 
+p.blog-id {
+    margin: 20px 0;
+    font-size: 20px;
+}
+
 
 
 body {

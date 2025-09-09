@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brickly</title>
-    
+
     <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
     <link rel="shortcut icon" href="favicon/favicon.ico" />
@@ -21,7 +21,7 @@
     <meta property="og:description" content="Brickly - интуитивно понятный редактор сайтов, позволяющий создавать и редактировать различные виды сайтов без знания программирования. Идеально подходит для учреждений образования и начинающих предпринимателей!" />
     <meta property="og:image" content="https://brickly.by/BricklySite.png" /> <meta property="og:url" content="https://brickly.by/" />
     <meta property="og:type" content="website"/>
-
+    
     </head>
 
     <body>
@@ -37,122 +37,15 @@
                     </a>    
                 </div>
 
-                    <input type="checkbox" id="burger-checkbox" class="burger-checkbox">
-                    <label class="burger" for="burger-checkbox"></label>
-
-                <div class="nav">
-                <ul class="menu_pages">
-                    <li>
-                        <a href="Templates">
-                        шаблоны
-                        </a>
-                    </li>
-
-                    <li>
-                        <a href="Projects">
-                        проекты
-                        </a>
-                    </li>
-                        
-                    <li>
-                        <a href="Bricks">
-                        брики
-                        </a>
-                    </li>
-
-                    <li class="sellect">
-                        <a href="Blog">
-                        блог
-                        </a>
-                    </li>
-
-                </ul>
-                </div>
-
-
-            </div>
-
-        <div class="searches-content">
-            <h2 class="text-search">
-                Популярные статьи и полезная информация по эффективному использованию сервиса
-            </h2>
-
-            <div class="articles-header">
-        <h1 class="articles-title">Популярные статьи и полезная информация по эффективному использованию сервиса</h1>
-        <div class="search-container">
-            <input type="text" class="search-input" placeholder="Поиск">
-            <button class="search-button">
-                <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" stop-color="#F5BA23" />
-                            <stop offset="33%" stop-color="#4DB6F7" />
-                            <stop offset="66%" stop-color="#F290FA" />
-                            <stop offset="100%" stop-color="#FB3562" />
-                        </linearGradient>
-                    </defs>
-                    <path d="M15.5 14h-.79l-.28-.27a6.5 6.5 0 0 0 1.48-5.34c-.47-2.78-2.79-5-5.59-5.34a6.505 6.505 0 0 0-7.27 7.27c.34 2.8 2.56 5.12 5.34 5.59a6.5 6.5 0 0 0 5.34-1.48l.27.28v.79l4.25 4.25c.41.41 1.08.41 1.49 0 .41-.41.41-1.08 0-1.49L15.5 14zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z" fill="url(#gradient)"/>
-                </svg>
-            </button>
         </div>
+        
+        <div class="pages-box">
+            <div id="post-container">
+        <div class="loading">Загрузка поста...</div>
+            </div>
+        </div>
+        
     </div>
-
-        </div>
-
-    </div>
-
-    <div class="blog">
-        <div class="head-Blog">
-            <h3 class="blog">
-                Блог
-            </h3>
-        </div>
-
-        <div class="blog-grid">
-            <a href="Posts.html?id=1">
-            <div class="blog-item">
-                <h3>10 мин</h3>
-                <p>Как пользоваться шаблонами Brickly и в чём их преимущество?</p>
-            </div>
-            </a>
-
-            <a href="Posts.html?id=2">
-            <div class="blog-item">
-                <h3>5 мин</h3>
-                <p>Как создать или перенести свой сайт на Brickly?</p>
-            </div>
-            </a>
-
-            <a href="Posts.html?id=3">
-            <div class="blog-item">
-                <h3>7 мин</h3>
-                <p>Какие виды сайтов поддерживаются Brickly?</p>
-            </div>
-            </a>
-
-            <a href="Posts.html?id=4">
-            <div class="blog-item">
-                <h3>20 мин</h3>
-                <p>Что такое брики и почему это так удобно?</p>
-            </div>
-            </a>
-            
-            <a href="Posts.html?id=5">
-            <div class="blog-item">
-                <h3>12 мин</h3>
-                <p>Хостинг сайта на Brickly: стоимость, плюсы, возможности</p>
-            </div>
-            </a>
-
-            <a href="Posts.html?id=6">
-            <div class="blog-item">
-                <h3>8 мин</h3>
-                <p>Функции и возможности сервиса Brickly</p>
-            </div>
-            </a>
-        </div>
-    
-
     <div class="main-footer">
         <div class="head-footer">
             <div class="footer-text-box">
@@ -238,11 +131,13 @@
                         <li>
                             bricklyproject@gmail.com
                         </li>
+
                         <li>
                             <div class="telegram-button">
                                 <a href="https://t.me/bricklyproject"><img src="ICONS/TELEGRAM (1).svg" alt="telegram"></a>
                             </div>
                         </li>
+
                         <li>
                             <div class="instagram-button">
                                 <a href="https://www.instagram.com/brickly.project/"><img src="ICONS/INSTAGRAM.svg" alt="insta"></a>
@@ -260,8 +155,21 @@
 
     </div>
     <script src="SCRIPTS/progressbar.js"></script>
-    <script src="SCRIPTS/search2.js"></script>
+    <script src="SCRIPTS/search.js"></script>
     <script src="SCRIPTS/black-back.js"></script>
+    <script src="SCRIPTS/posts.js"></script>
+    <script>
+        // Получаем ID из URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const postId = urlParams.get('id');
+        
+        if (postId) {
+            loadPost(postId);
+        } else {
+            document.getElementById('post-container').innerHTML = 
+                '<div class="error">Пост не найден</div>';
+        }
+    </script>
     </body>
 
     </html>
