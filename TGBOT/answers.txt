@@ -6,24 +6,30 @@ Brickly - интуитивно понятный редактор сайтов, �
 ##Структура Brickly Project
 Структура представлена на рисунке.
 
-##Разработчик
+##CTO
 Flipuk - CTO, Neutral Network, Development.
 Леончик Никита Иванович 
 TG - @Flipuk
 
-##Дизайнер
+##CEO
 Chestnut Frenemy - CEO, Business strategy, Marketing.
 Кравцов Никита Андреевич
 TG - @ChestnutFrenemy
 
-##ТГ
-Telegram канал: https://t.me/bricklyproject
+##FULLSTACK
+RaiDrag - FullStack Developer, QA.
+Булка Илья Александрович
+TG - @IlyaBulka
+
 
 ##ИНСТ
 Instagram: https://www.instagram.com/brickly.project?igsh=ajk1Z3Ixemp2dzg1
 
 ##ГТ
-GitHub: https://github.com/LeoNchiC/BusinessHubProject
+GitHub: https://github.com/LeoNchiC/BricklyProject/tree/main
 
 ##Мыло
-Gmail: brickly.project@gmail.com
+brickly.project@gmail.com
+
+##Сайт
+Brickly Landing: https://brickly.by

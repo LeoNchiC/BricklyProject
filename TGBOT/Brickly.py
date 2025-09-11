@@ -9,13 +9,13 @@
 import telebot
 import os
 
-API_TOKEN = '8022549541:AAH6P0bNVBkjZ4gfrO6PWOVosDl1XjCDTCI'
+API_TOKEN = ''
 
 bot = telebot.TeleBot(API_TOKEN)
 
 # Айди админов для отправки рассылок
-ADMIN_ID = 872274179
-ADMIN_ID2 = 1639361324
+ADMIN_ID = 
+ADMIN_ID2 = 
 
 SUBSCRIBERS_FILE = "subs.txt" #Подгружаем файл с подписками для рассылок
 MESSAGE_FILE = 'answers.txt' #Подгружаем файл с главными ответами
@@ -132,18 +132,19 @@ def handle_structure_project_text(message):
 #--------------------------------------------------------------
 @bot.message_handler(func=lambda message: message.text == '🧑‍💻Авторы Проекта🧑‍💻')# Задаем ответ на "Авторы Проекта" 
 def handle_authors_text(message):
-    markup = telebot.types.ReplyKeyboardMarkup(row_width=2, resize_keyboard=True)
-    flipuk = telebot.types.InlineKeyboardButton('Разработчик')
-    chfr = telebot.types.InlineKeyboardButton('Дизайнер')
+    markup = telebot.types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+    flipuk = telebot.types.InlineKeyboardButton('CTO')
+    chfr = telebot.types.InlineKeyboardButton('CEO')
+    bulka = telebot.types.InlineKeyboardButton('DEV')
     back = telebot.types.InlineKeyboardButton('⬅️Назад⬅️')
-    markup.add(flipuk, chfr, back)
+    markup.add(flipuk, chfr, bulka, back)
     bot.send_message(message.chat.id, 'Авторы проекта:', reply_markup=markup)
 
 #--------------------------------------------------------------
-@bot.message_handler(func=lambda message: message.text == 'Разработчик') # Задаем ответ на "Разработчик"
+@bot.message_handler(func=lambda message: message.text == 'CTO') # Задаем ответ на "Разработчик"
 def handle_flipuk_text(message):
 
-    answer = get_answer_for_key('Разработчик') 
+    answer = get_answer_for_key('CTO') 
 
     flipuk4_image_path = os.path.join(BASE_DIR, "IMAGES", "Flipuk4.png") # Путь к фото
     try:
@@ -164,13 +165,13 @@ def handle_flipuk_text(message):
              bot.send_message(message.chat.id, answer)
 
     if answer is None and not os.path.exists(flipuk4_image_path):
-         bot.send_message(message.chat.id, 'Информация по запросу "Разработчик" не найдена (фото или текст).')
+         bot.send_message(message.chat.id, 'Информация по запросу "CTO" не найдена (фото или текст).')
 
 #--------------------------------------------------------------
-@bot.message_handler(func=lambda message: message.text == 'Дизайнер') # Задаем ответ на "Дизайнер"
+@bot.message_handler(func=lambda message: message.text == 'CEO') # Задаем ответ на "Дизайнер"
 def handle_chfr_text(message):
 
-    answer = get_answer_for_key('Дизайнер')
+    answer = get_answer_for_key('CEO')
 
     CHFR2_image_path = os.path.join(BASE_DIR, "IMAGES", "CHFR2.png") # Путь к фото
     try:
@@ -191,9 +192,39 @@ def handle_chfr_text(message):
              bot.send_message(message.chat.id, answer)
 
     if answer is None and not os.path.exists(CHFR2_image_path):
-         bot.send_message(message.chat.id, 'Информация по запросу "Дизайнер" не найдена (фото или текст).')
+         bot.send_message(message.chat.id, 'Информация по запросу "CEO" не найдена (фото или текст).')
 
 #--------------------------------------------------------------
+
+#--------------------------------------------------------------
+@bot.message_handler(func=lambda message: message.text == 'DEV') # Задаем ответ на "Дизайнер"
+def handle_chfr_text(message):
+
+    answer = get_answer_for_key('FULLSTACK')
+
+    BULKA_image_path = os.path.join(BASE_DIR, "IMAGES", "BULKA.png") # Путь к фото
+    try:
+
+        with open(BULKA_image_path, "rb") as photo:
+            bot.send_photo(message.chat.id, photo, caption=answer if answer else None)
+
+    except FileNotFoundError:
+        print(f"Photo not found on route: {BULKA_image_path}")
+        bot.send_message(message.chat.id, "Фото не найдено.")
+
+        if answer:
+             bot.send_message(message.chat.id, answer)
+
+    except Exception as e:
+        bot.send_message(message.chat.id, f"Произошла ошибка при отправке фото: {e}")
+        if answer:
+             bot.send_message(message.chat.id, answer)
+
+    if answer is None and not os.path.exists(BULKA_image_path):
+         bot.send_message(message.chat.id, 'Информация по запросу "DEV" не найдена (фото или текст).')
+
+#--------------------------------------------------------------
+
 @bot.message_handler(func=lambda message: message.text == '📱Соцсети📱') # Задаем ответ на "Соцсети"
 def handle_chfr_text(message):
     markup = telebot.types.ReplyKeyboardMarkup(row_width=2,resize_keyboard=True)
@@ -201,45 +232,151 @@ def handle_chfr_text(message):
     ig = telebot.types.KeyboardButton('📸Instagram📸')
     gt = telebot.types.KeyboardButton('😺Github😺')
     mail = telebot.types.KeyboardButton('📪Mail📪')
+    site = telebot.types.KeyboardButton('🖥️Наш Сайт🖥️')
     back = telebot.types.KeyboardButton('⬅️Назад⬅️')
-    markup.add(tg, ig, gt, mail, back)
+    markup.add(tg, ig, gt, mail, site, back)
     bot.send_message(message.chat.id, 'Выберите соцсети:', reply_markup=markup)
 #--------------------------------------------------------------
 
 #--------------------------------------------------------------
+
 @bot.message_handler(func=lambda message: message.text == '✈️Telegram✈️') # Задаем ответ на "Telegram"
-def handle_tg_button(message):
-    answer = get_answer_for_key('ТГ')
-    if answer is not None: 
-        bot.send_message(message.chat.id, answer)
-    else:
-        bot.send_message(message.chat.id, 'Информация по запросу "✈️Telegram✈️" не найдена или произошла ошибка при чтении файла.')
+def handle_flipuk_text(message): 
 
+    telegram_image_path = os.path.join(BASE_DIR, "IMAGES", "telegram.jpg") # Путь к фото
+    
+    try:
+        # Создаем клавиатуру с кнопкой
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://t.me/bricklyproject")  
+        markup.add(button)
 
+        with open(telegram_image_path, "rb") as photo:
+            bot.send_photo(
+                message.chat.id, 
+                photo,
+                reply_markup=markup
+            )
+
+    except FileNotFoundError:
+        print(f"Photo not found on route: {telegram_image_path}")
+        # Отправляем кнопку даже если фото не найдено
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://t.me/bricklyproject")
+        markup.add(button)
+        
+        bot.send_message(message.chat.id, "Фото не найдено.", reply_markup=markup)
+       
 @bot.message_handler(func=lambda message: message.text == '📸Instagram📸') # Задаем ответ на "Instagram"
-def handle_tg_button(message):
-    answer = get_answer_for_key('ИНСТ')
-    if answer is not None: 
-        bot.send_message(message.chat.id, answer)
-    else:
-        bot.send_message(message.chat.id, 'Информация по запросу "📸Instagram📸" не найдена или произошла ошибка при чтении файла.')
+def handle_flipuk_text(message): 
 
+    instagram_image_path = os.path.join(BASE_DIR, "IMAGES", "instagram.jpg") # Путь к фото
+    
+    try:
+        # Создаем клавиатуру с кнопкой
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://www.instagram.com/brickly.project?igsh=ajk1Z3Ixemp2dzg1")  
+        markup.add(button)
 
-@bot.message_handler(func=lambda message: message.text == '😺Github😺') # Задаем ответ на "Github"
-def handle_tg_button(message):
-    answer = get_answer_for_key('ГТ')
-    if answer is not None: 
-        bot.send_message(message.chat.id, answer)
-    else:
-        bot.send_message(message.chat.id, 'Информация по запросу "😺Github😺" не найдена или произошла ошибка при чтении файла.')
+        with open(instagram_image_path, "rb") as photo:
+            bot.send_photo(
+                message.chat.id, 
+                photo,
+                reply_markup=markup
+            )
+
+    except FileNotFoundError:
+        print(f"Photo not found on route: {instagram_image_path}")
+        # Отправляем кнопку даже если фото не найдено
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://www.instagram.com/brickly.project?igsh=ajk1Z3Ixemp2dzg1")
+        markup.add(button)
+        
+        bot.send_message(message.chat.id, "Фото не найдено.", reply_markup=markup)
+
+@bot.message_handler(func=lambda message: message.text == '😺Github😺') # Задаем ответ на "GitHub"
+def handle_flipuk_text(message): 
+
+    github_image_path = os.path.join(BASE_DIR, "IMAGES", "github.jpg") # Путь к фото
+    
+    try:
+        # Создаем клавиатуру с кнопкой
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://github.com/LeoNchiC/BricklyProject/tree/main")  
+        markup.add(button)
+
+        with open(github_image_path, "rb") as photo:
+            bot.send_photo(
+                message.chat.id, 
+                photo,
+                reply_markup=markup
+            )
+
+    except FileNotFoundError:
+        print(f"Photo not found on route: {github_image_path}")
+        # Отправляем кнопку даже если фото не найдено
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://github.com/LeoNchiC/BricklyProject/tree/main")
+        markup.add(button)
+        
+        bot.send_message(message.chat.id, "Фото не найдено.", reply_markup=markup)
 
 @bot.message_handler(func=lambda message: message.text == '📪Mail📪') # Задаем ответ на "Mail"
-def handle_tg_button(message):
-    answer = get_answer_for_key('Мыло')
-    if answer is not None: 
-        bot.send_message(message.chat.id, answer)
-    else:
-        bot.send_message(message.chat.id, 'Информация по запросу "📪Mail📪" не найдена или произошла ошибка при чтении файла.')
+def handle_flipuk_text(message):
+
+    answer = get_answer_for_key('Мыло') 
+
+    mail_image_path = os.path.join(BASE_DIR, "IMAGES", "mail.jpg") # Путь к фото
+    try:
+
+        with open(mail_image_path, "rb") as photo:
+            bot.send_photo(message.chat.id, photo, caption=answer if answer else None)
+
+    except FileNotFoundError:
+        print(f"Photo not found on route: {mail_image_path}")
+        bot.send_message(message.chat.id, "Фото не найдено.")
+
+        if answer:
+             bot.send_message(message.chat.id, answer)
+
+    except Exception as e:
+        bot.send_message(message.chat.id, f"Произошла ошибка при отправке фото: {e}")
+        if answer:
+             bot.send_message(message.chat.id, answer)
+
+    if answer is None and not os.path.exists(mail_image_path):
+         bot.send_message(message.chat.id, 'Информация по запросу "📪Mail📪" не найдена или произошла ошибка при чтении файла.(фото или текст).')
+
+
+@bot.message_handler(func=lambda message: message.text == '🖥️Наш Сайт🖥️') # Задаем ответ на "Наш сайт"
+def handle_flipuk_text(message): 
+
+    site_image_path = os.path.join(BASE_DIR, "IMAGES", "site.jpg") # Путь к фото
+    
+    try:
+        # Создаем клавиатуру с кнопкой
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://brickly.by/")  
+        markup.add(button)
+
+        with open(site_image_path, "rb") as photo:
+            bot.send_photo(
+                message.chat.id, 
+                photo,
+                reply_markup=markup
+            )
+
+    except FileNotFoundError:
+        print(f"Photo not found on route: {site_image_path}")
+        # Отправляем кнопку даже если фото не найдено
+        markup = telebot.types.InlineKeyboardMarkup()
+        button = telebot.types.InlineKeyboardButton("Перейти", url="https://brickly.by/")
+        markup.add(button)
+        
+        bot.send_message(message.chat.id, "Фото не найдено.", reply_markup=markup)
+
+
+        
 #--------------------------------------------------------------
 
 #--------------------------------------------------------------
@@ -378,5 +515,11 @@ def handle_back_button(message):
 #--------------------------------------------------------------
 
 
+@bot.message_handler(func=lambda message: True)
+def fallback_handler(message):
+    bot.send_message(message.chat.id, "о как")
+
 
 bot.polling()
+
+
